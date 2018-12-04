@@ -21,4 +21,8 @@
 		select * from sys_user where username = #{username}
 	</select>
 
+	<select id="queryRolesByUserId" resultType="java.lang.String">
+		SELECT b.role_name FROM sys_user_role a LEFT JOIN sys_role b on a.role_id = b.role_id where a.user_id=#{userId};
+	</select>
+
 </mapper>
