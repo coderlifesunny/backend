@@ -9,6 +9,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
  * Description:
  *
@@ -20,6 +22,7 @@ public class ProjectBiz {
 
     @Autowired
     private ProjectService projectService;
+
     /**
      * 保存项目
      *
@@ -33,6 +36,7 @@ public class ProjectBiz {
         entity.setManagerId(Long.parseLong(param.getManager().split(":")[0]));
         entity.setManagerName(param.getManager().split(":")[1]);
         entity.setMaterialMess(JSONObject.toJSONString(param.getMaterials()));
+        entity.setCreateTime(new Date());
         projectService.insert(entity);
     }
 }
