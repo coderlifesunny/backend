@@ -27,10 +27,10 @@ public class ProjectOperateParam {
 
     private String manager;
 
-    @JsonFormat( pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startContractTime;
 
-    @JsonFormat( pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endContractTime;
 
     private String remark;

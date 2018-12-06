@@ -57,5 +57,12 @@ public interface SysUserService extends IService<SysUserEntity> {
 	 */
 	boolean updatePassword(Long userId, String password, String newPassword);
 
+	/**
+	 * 获取用户的角色名
+	 * @param userId
+	 * @return
+	 */
 	List<String> getUserRolesByUserId(Long userId);
+
+	List<SysUserEntity> getAllUsers4Dropdown();
 }

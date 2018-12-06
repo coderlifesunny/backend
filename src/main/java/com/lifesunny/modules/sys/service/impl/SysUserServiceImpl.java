@@ -131,6 +131,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
         return sysUserDao.queryRolesByUserId(userId);
     }
 
+    @Override
+    public List<SysUserEntity> getAllUsers4Dropdown() {
+        return sysUserDao.queryAllUsers4Dropdown();
+    }
+
     /**
      * 检查角色是否越权
      */

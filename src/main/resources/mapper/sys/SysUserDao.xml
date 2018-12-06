@@ -24,5 +24,8 @@
 	<select id="queryRolesByUserId" resultType="java.lang.String">
 		SELECT b.role_name FROM sys_user_role a LEFT JOIN sys_role b on a.role_id = b.role_id where a.user_id=#{userId};
 	</select>
+    <select id="queryAllUsers4Dropdown" resultType="com.lifesunny.modules.sys.entity.SysUserEntity">
+		select user_id, username, status from sys_user where user_id <![CDATA[ <> ]]> 1
+	</select>
 
 </mapper>

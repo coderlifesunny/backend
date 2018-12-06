@@ -3,6 +3,7 @@ package com.lifesunny.modules.dec.entity;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -28,9 +29,9 @@ public class ProjectEntity implements Serializable {
     private String name;
 
     /**
-     * 业务状态:0无效  1有效
+     * 业务状态:0未开工 1施工中 2已完工
      */
-    private Integer status = 1;
+    private Integer status = 0;
 
     /**
      * 业主姓名
@@ -75,6 +76,7 @@ public class ProjectEntity implements Serializable {
     /**
      * 选材信息（JSON串）
      */
+    @JsonIgnore
     private String materialMess;
     /**
      * 创建者ID

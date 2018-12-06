@@ -33,4 +33,10 @@ public interface SysUserDao extends BaseMapper<SysUserEntity> {
 
 	List<String> queryRolesByUserId(Long userId);
 
+	/**
+	 * 查询出所有的用户
+	 * @return
+	 */
+	List<SysUserEntity> queryAllUsers4Dropdown();
+
 }
