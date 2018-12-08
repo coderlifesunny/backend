@@ -64,5 +64,5 @@ public interface SysUserService extends IService<SysUserEntity> {
 	 */
 	List<String> getUserRolesByUserId(Long userId);
 
-	List<SysUserEntity> getAllUsers4Dropdown();
+	List<SysUserEntity> getAllUsers4Dropdown(Integer title);
 }

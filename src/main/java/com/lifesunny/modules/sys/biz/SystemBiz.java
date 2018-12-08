@@ -1,5 +1,6 @@
 package com.lifesunny.modules.sys.biz;
 
+import com.lifesunny.common.constants.Constant;
 import com.lifesunny.modules.sys.entity.SysUserEntity;
 import com.lifesunny.modules.sys.service.SysUserService;
 import com.lifesunny.modules.sys.vo.SysUserDropdownVO;
@@ -23,10 +24,14 @@ public class SystemBiz {
 
     /**
      * 查询出所有的用户
+     *
      * @return
      */
-    public List<SysUserDropdownVO> findAllUsers4Drowdown() {
-        List<SysUserEntity> allUsers4Dropdown = sysUserService.getAllUsers4Dropdown();
+    public List<SysUserDropdownVO> findAllUsers4Dropdown(Integer title) {
+        if (title == null) {
+            title = Constant.N_999;
+        }
+        List<SysUserEntity> allUsers4Dropdown = sysUserService.getAllUsers4Dropdown(title);
         List<SysUserDropdownVO> vos = new ArrayList<>(allUsers4Dropdown.size());
         for (SysUserEntity entity : allUsers4Dropdown) {
             vos.add(new SysUserDropdownVO().build(entity));

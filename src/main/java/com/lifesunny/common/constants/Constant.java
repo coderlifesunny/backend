@@ -13,6 +13,11 @@ public class Constant {
     public static final int SUPER_ADMIN = 1;
 
     /**
+     * 全部的状态
+     */
+    public static final int N_999 = -999;
+
+    /**
      * 菜单类型
      *
      * @author chenshun

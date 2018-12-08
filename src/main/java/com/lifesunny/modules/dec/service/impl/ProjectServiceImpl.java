@@ -25,7 +25,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectDao, ProjectEntity> i
                         .like("name", (String) params.get("name"))
                         .like("designer_name", (String) params.get("designerName"))
                         .like("manager_name", (String) params.get("managerName"))
-                        .eq(!(params.get("status")).equals("-999"), "status", params.get("status"))
+                        .eq(!(params.get("status").toString()).equals("-999"), "status", params.get("status"))
         );
 
         return new PageUtils(page);

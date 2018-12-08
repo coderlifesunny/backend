@@ -3,8 +3,8 @@ package com.lifesunny.modules.sys.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.lifesunny.common.exception.SystemException;
 import com.lifesunny.common.constants.Constant;
+import com.lifesunny.common.exception.SystemException;
 import com.lifesunny.common.utils.PageUtils;
 import com.lifesunny.common.utils.Query;
 import com.lifesunny.modules.sys.dao.SysUserDao;
@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 
@@ -37,7 +38,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
     @Autowired
     private SysRoleService sysRoleService;
 
-    @Autowired
+    @Resource
     private SysUserDao sysUserDao;
 
     @Override
@@ -53,6 +54,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
 
         List<SysUserEntity> records = page.getRecords();
         Page<SysUserVO> pageVO = new Page<>();
+        BeanUtils.copyProperties(page, pageVO);
         List<SysUserVO> vos = new ArrayList<>(records.size());
         for (SysUserEntity entity : records) {
             SysUserVO vo = new SysUserVO();
@@ -132,8 +134,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
     }
 
     @Override
-    public List<SysUserEntity> getAllUsers4Dropdown() {
-        return sysUserDao.queryAllUsers4Dropdown();
+    public List<SysUserEntity> getAllUsers4Dropdown(Integer title) {
+        return sysUserDao.queryAllUsers4Dropdown(title);
     }
 
     /**

@@ -3,6 +3,7 @@ package com.lifesunny.modules.sys.dao;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.lifesunny.modules.sys.entity.SysUserEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -37,6 +38,6 @@ public interface SysUserDao extends BaseMapper<SysUserEntity> {
 	 * 查询出所有的用户
 	 * @return
 	 */
-	List<SysUserEntity> queryAllUsers4Dropdown();
+	List<SysUserEntity> queryAllUsers4Dropdown(@Param("title") Integer title);
 
 }

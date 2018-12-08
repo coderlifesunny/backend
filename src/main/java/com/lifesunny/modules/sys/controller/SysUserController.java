@@ -153,10 +153,12 @@ public class SysUserController extends AbstractController {
     /**
      * 获取所有的用户，用于下拉框展示(暂时不加权限)
      *
+     * @param title 根据岗位查询所有
      * @return
      */
     @GetMapping("/dropdown/users")
-    public HttpResult findAllUsers4Dropdown() {
-        return HttpResult.ok().put("users", systemBiz.findAllUsers4Drowdown());
+    public HttpResult findAllUsers4Dropdown(@RequestParam(value = "title", required = false) Integer title) {
+        return HttpResult.ok().put("users", systemBiz.findAllUsers4Dropdown(title));
     }
+
 }

@@ -1,5 +1,6 @@
 package com.lifesunny.modules.dec.controller;
 
+import com.lifesunny.common.constants.Constant;
 import com.lifesunny.common.entity.HttpResult;
 import com.lifesunny.common.utils.PageUtils;
 import com.lifesunny.modules.dec.biz.ProjectBiz;
@@ -9,6 +10,7 @@ import com.lifesunny.modules.dec.service.ProjectService;
 import com.lifesunny.modules.sys.controller.AbstractController;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +40,9 @@ public class ProjectController extends AbstractController {
     @RequestMapping("/list")
     @RequiresPermissions("dec:project:list")
     public HttpResult list(@RequestParam Map<String, Object> params) {
+        if (null == params.get("status")) {
+            params.put("status", Constant.N_999);
+        }
         PageUtils page = projectService.queryPage(params);
 
         return HttpResult.ok().put("page", page);
@@ -101,7 +106,7 @@ public class ProjectController extends AbstractController {
     }
 
     @RequestMapping("/dashboard")
-    public HttpResult dashboard(){
+    public HttpResult dashboard() {
         return HttpResult.ok();
     }
 

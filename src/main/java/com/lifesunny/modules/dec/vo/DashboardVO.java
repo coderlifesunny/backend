@@ -17,8 +17,15 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class DashboardVO {
-    private List<StageStatistics> stages = new ArrayList<>();
-    private List<DesignerStatistics> designers = new ArrayList<>();
+    /**
+     * 按工地阶段进行统计
+     */
+    private List<StageStatistics> byStages = new ArrayList<>();
+
+    /**
+     * 按设计师进行统计（只统计前三）
+     */
+    private List<DesignerStatistics> byDesigners = new ArrayList<>();
 
     /**
      * 按阶段进行工地统计

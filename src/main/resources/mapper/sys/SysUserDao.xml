@@ -26,6 +26,9 @@
 	</select>
     <select id="queryAllUsers4Dropdown" resultType="com.lifesunny.modules.sys.entity.SysUserEntity">
 		select user_id, username, status from sys_user where user_id <![CDATA[ <> ]]> 1
+		<if test="title!=-999">
+			and title=#{title}
+		</if>
 	</select>
 
 </mapper>
