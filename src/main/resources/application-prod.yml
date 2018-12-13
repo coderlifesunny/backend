@@ -4,13 +4,13 @@ spring:
         driverClassName: com.mysql.jdbc.Driver
         druid:
             first:
-                url: jdbc:mysql://localhost:3306/backend?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+                url: jdbc:mysql://118.126.117.199:3306/backend?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
                 username: root
-                password:
+                password: root
             second:
-                url: jdbc:mysql://localhost:3306/backend?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+                url: jdbc:mysql://118.126.117.199:3306/backend?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
                 username: root
-                password:
+                password: root
             initial-size: 10
             max-active: 100
             min-idle: 10
